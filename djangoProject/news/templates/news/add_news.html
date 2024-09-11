@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Страница для добавления новостей</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Страница для добавления новостей</h1>
+    <hr>
+    <div class="container mt-5">
+        <h2 class="mb-4">Добавить новость</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+<!--                <label for="newsTitle">Название новости</label>-->
+<!--                <input type="text" class="form-control" id="newsTitle" placeholder="Название новости">-->
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+<!--                <label for="newsDescription">Краткое описание новости</label>-->
+<!--                <input type="text" class="form-control" id="newsDescription" placeholder="Краткое описание новости">-->
+                {{ form.short_description }}
+            </div>
+            <div class="form-group">
+<!--                <label for="newsText">Текст новости</label>-->
+<!--                <textarea class="form-control" id="newsText" rows="4" placeholder="Текст новости"></textarea>-->
+                {{ form.text }}
+            </div>
+            <div class="form-group">
+<!--                <label for="userName">Имя пользователя</label>-->
+<!--                <input type="text" class="form-control" id="userName" placeholder="Имя пользователя">-->
+                {{ form.username }}
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить новость</button>
+        </form>
+        <p>{{ error }}</p>
+    </div>
+
+{% endblock %}
